@@ -3,8 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>WHO Gewichtskurven – easy-mama.de</title>
+    <title>Gewichtskurven erstellen nach WHO – Tool von eazy-mama.de</title>
     <link rel="icon" href="/favicon.svg" />
+    <!-- Tailwind via CDN: kein PostCSS/Build nötig -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#dc758a",
+              pink: "#f5a8b6",
+              lightpink: "#fddbe3",
+              extralightpink: "#fbe5e7",
+              cream: "#fef5ce",
+              textdark: "#231b18",
+              whoGreen: "#2e7d32",
+              whoRed: "#c62828",
+              whoBlack: "#212121"
+            },
+            fontFamily: { inter: ["Inter","system-ui","Arial","sans-serif"] },
+            boxShadow: { soft: "0 6px 20px rgba(0,0,0,0.06)" }
+          }
+        }
+      }
+    </script>
   </head>
   <body class="bg-cream">
     <div id="root"></div>
