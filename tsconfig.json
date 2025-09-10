@@ -8,6 +8,9 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client"]
-  }
+    "types": ["vite/client"],
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "scripts", "vite.config.ts"]
 }
