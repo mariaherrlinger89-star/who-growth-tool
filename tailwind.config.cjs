@@ -5,9 +5,10 @@ module.exports = {
     extend: {
       colors: {
         primary: "#dc758a",
-        pink: "#f5a8b6",
-        lightpink: "#fddbe3",
-        extralightpink: "#fbe5e7",
+        pink: "#ff6392",
+        lightpink: "#fba9bb",
+        extralightpink: "#f8e5e9",
+        blue: "#5aa9e6",
         cream: "#fef5ce",
         textdark: "#231b18",
         whoGreen: "#2e7d32",   // Z0
