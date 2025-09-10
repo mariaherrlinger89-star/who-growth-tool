@@ -113,7 +113,7 @@ export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row
       y: {
         type: "linear",
         min: 2,
-        max: 25,
+        max: 12,
         grid: { color: "rgba(0,0,0,0.06)" },
         ticks: { stepSize: 1 },
         title: { display: true, text: "Gewicht (kg)" },
