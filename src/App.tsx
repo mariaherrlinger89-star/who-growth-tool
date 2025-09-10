@@ -63,13 +63,13 @@ export default function App() {
                 <label className="label">Geschlecht</label>
                 <div className="mt-1 flex gap-2">
                   <button
-                    className={`btn-primary ${sex === "girl" ? "" : "bg-pink text-textdark"}`}
+                    className={`btn-girl ${sex === "girl" ? "" : "bg-pink text-textdark"}`}
                     onClick={() => setSex("girl")}
                   >
                     Mädchen
                   </button>
                   <button
-                    className={`btn-primary ${sex === "boy" ? "" : "bg-blue text-textdark"}`}
+                    className={`btn-boy ${sex === "boy" ? "" : "bg-blue text-textdark"}`}
                     onClick={() => setSex("boy")}
                   >
                     Junge
