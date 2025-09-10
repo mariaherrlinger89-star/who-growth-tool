@@ -65,3 +65,18 @@ button {
   background: #5aa9e6;
   color: #fff;
 }
+/* Jungen-Button */
+.btn-boy {
+  background-color: #7fc8f8; /* Basis-Blau */
+  color: #231b18;           /* dunkler Text */
+}
+.btn-boy.active {
+  background-color: #5aa9e6; /* satteres Blau */
+  color: #fff;              /* weiße Schrift */
+}
+
+/* Mädchen-Button (falls analog gewünscht) */
+.btn-girl {
+  background-color: #ff6392;
+  color: #fff;
+}
