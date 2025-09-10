@@ -1,94 +1,51 @@
-/* ==== Brand-Variablen (aus deiner Tailwind-Config gespiegelt) ==== */
+/* ===== Farb-Variablen (aus deiner Tailwind-Config) ===== */
 :root {
   --primary:        #dc758a;
   --pink:           #ff6392;  /* Wunschpink */
   --lightpink:      #fba9bb;
   --extralightpink: #f8e5e9;
-  --blue:           #5aa9e6;  /* Jungen-Button */
+  --blue:           #5aa9e6;  /* Jungen */
   --cream:          #fef5ce;
   --textdark:       #231b18;
+
   --whoGreen:       #2e7d32;  /* Z0 */
   --whoRed:         #c62828;  /* Z±2 */
   --whoBlack:       #212121;  /* Z±3 */
 }
 
-/* ==== Basis ==== */
-html, body, #root { height: 100%; }
-body { background: var(--cream); color: var(--textdark); font-family: Inter, system-ui, Arial, sans-serif; }
+/* Grundfarben für Seite – nur Farbe, kein Layout */
+body { color: var(--textdark); background-color: var(--cream); }
 
-/* ==== UI-Atoms ==== */
-.card {
-  background: #fff;
-  border-radius: 1rem;              /* ≈ rounded-2xl */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  padding: 1.5rem;                  /* p-6 */
+/* ===== Buttons – NUR Farbe, keine Form-Änderung ===== */
+/* Primärbutton (z.B. “+ Messwert hinzufügen”) */
+.btn-primary {
+  background-color: var(--pink) !important;
+  color: #fff !important;
+  border-color: var(--pink) !important;
+}
+.btn-primary:hover  { background-color: #ff5789 !important; }
+.btn-primary:active { background-color: #ff4b80 !important; }
+
+/* Optional: Buttons für Geschlecht, falls du diese Klassen nutzt */
+.btn-girl, .sex-girl {
+  background-color: var(--pink) !important;
+  color: #fff !important;
+  border-color: var(--pink) !important;
+}
+.btn-boy, .sex-boy {
+  background-color: var(--blue) !important;
+  color: #fff !important;
+  border-color: var(--blue) !important;
 }
 
-.label { font-size: 0.875rem; color: color-mix(in oklab, var(--textdark) 70%, transparent); font-weight: 500; }
-
-.input {
-  width: 100%;
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;        /* gray-300 */
-  padding: 0.5rem 0.75rem;
-  background: #fff;
-}
+/* ===== Inputs – nur Fokusfarbe, keine Form ===== */
 .input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px color-mix(in oklab, var(--pink) 25%, transparent);
-  border-color: var(--pink);
+  border-color: var(--pink) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(255, 99, 146, .30) !important; /* nur Farbe */
 }
 
-/* Buttons */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.5rem 1rem;
-  border: none; border-radius: 0.5rem;
-  font-weight: 600; cursor: pointer;
-  transition: filter .15s ease, opacity .15s ease;
-}
-.btn:disabled { opacity: .6; cursor: not-allowed; }
-
-/* Primär = Pink (Standard/Mädchen) */
-.btn-primary { background: var(--pink); color: #fff; }
-.btn-primary:hover { filter: brightness(0.95); }
-.btn-primary:active { filter: brightness(0.9); }
-
-/* Jungen-Button = Blau */
-.btn-boy { background: var(--blue); color: #fff; }
-.btn-boy:hover { filter: brightness(0.95); }
-.btn-boy:active { filter: brightness(0.9); }
-
-/* Sekundär (z. B. nicht aktiver Toggle) */
-.btn-secondary {
-  background: #e5e7eb; color: var(--textdark);
-}
-.btn-secondary:hover { filter: brightness(0.98); }
-
-/* Badges */
-.badge-ok {
-  display: inline-flex; align-items: center; gap: .35rem;
-  border-radius: 9999px; padding: 2px 8px; font-size: 0.75rem;
-  background: #dcfce7; color: #15803d;
-}
-.badge-warn {
-  display: inline-flex; align-items: center; gap: .35rem;
-  border-radius: 9999px; padding: 2px 8px; font-size: 0.75rem;
-  background: #fee2e2; color: #b91c1c;
-}
-
-/* Hilfsklassen (falls benötigt) */
-.text-who-green { color: var(--whoGreen); }
-.text-who-red   { color: var(--whoRed); }
-.text-who-black { color: var(--whoBlack); }
-.bg-cream       { background: var(--cream); }
-
-/* Chart.js Legendenlinie etwas dicker lesbar (falls global gewünscht) */
-.chart-legend-line {
-  width: 28px; height: 0; border-top: 3px solid currentColor; display: inline-block;
-}
-
-/* Responsive Cards */
-@media (max-width: 640px) {
-  .card { padding: 1rem; }
-}
+/* ===== WHO-Farben als Hilfsklassen (nur Farbe) ===== */
+.text-who-green { color: var(--whoGreen) !important; }
+.text-who-red   { color: var(--whoRed) !important; }
+.text-who-black { color: var(--whoBlack) !important; }
