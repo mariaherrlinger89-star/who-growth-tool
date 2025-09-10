@@ -1,61 +1,67 @@
-/* ========== Farb-Token (nur Farben, keine Layout-Änderungen) ========== */
-:root {
-  --pink:           #ff6392;  /* Mädchen + Primär */
-  --blue:           #5aa9e6;  /* Junge */
-  --lightpink:      #fba9bb;
-  --extralightpink: #f8e5e9;
-  --cream:          #fef5ce;
-  --textdark:       #231b18;
+/* ========= Ursprüngliche Styles ========== */
 
-  --whoGreen:       #2e7d32;  /* Z0 */
-  --whoRed:         #c62828;  /* Z±2 */
-  --whoBlack:       #212121;  /* Z±3 */
-}
-
-/* Hintergrund & Text – nur Farbe */
 body {
-  background-color: var(--cream);
-  color: var(--textdark);
+  background: #fef5ce;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  color: #231b18;
 }
 
-/* ===== Primär-Button (z. B. “+ Messwert hinzufügen”, Minus etc.) =====
-   Achtung: nur Farbe! Form bleibt wie im HTML/den bestehenden Klassen. */
-.btn-primary {
-  background-color: var(--pink) !important;
-  border-color: var(--pink) !important;
-  color: #fff !important;
-}
-.btn-primary:hover  { filter: brightness(0.97); }
-.btn-primary:active { filter: brightness(0.93); }
-
-/* ===== Geschlechts-Buttons – nur Farblogik, keine Form =====
-   Verwende im Markup einen Container .gender und beliebige .btn darin.
-   Aktiver Zustand bekommt .is-active + .girl / .boy.
-   Inaktive bekommen .is-inactive (optional). */
-.gender .btn.is-active.girl {
-  background-color: var(--pink) !important;
-  border-color: var(--pink) !important;
-  color: #fff !important;
-}
-.gender .btn.is-active.boy {
-  background-color: var(--blue) !important;
-  border-color: var(--blue) !important;
-  color: #fff !important;
-}
-.gender .btn.is-inactive {
-  background-color: var(--lightpink) !important;
-  border-color: var(--lightpink) !important;
-  color: var(--textdark) !important;
+/* Label */
+.label {
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-/* ===== Inputs – nur Fokusfarbe, keine Form ===== */
+/* Input */
+.input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;   /* kleine Rundung */
+  font-size: 1rem;
+}
 .input:focus {
-  border-color: var(--pink) !important;
-  outline: none !important;
-  box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.28) !important;
+  outline: none;
+  border-color: #ff6392;
+  box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.25);
 }
 
-/* ===== WHO-Farben als Hilfsklassen (nur Farbe) ===== */
-.text-who-green { color: var(--whoGreen) !important; }
-.text-who-red   { color: var(--whoRed) !important; }
-.text-who-black { color: var(--whoBlack) !important; }
+/* Buttons */
+button {
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Primärer Button (z. B. + Messwert hinzufügen, Minus) */
+.btn-primary {
+  background-color: #ff6392;  /* Pink */
+  border: none;
+  border-radius: 0.5rem;     /* kleine Rundung */
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #e55882;
+}
+.btn-primary:active {
+  background-color: #cc4a70;
+}
+
+/* Geschlechtswahl Buttons */
+.gender button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;  /* kleine Rundung */
+  border: 1px solid #ddd;
+  background: #fba9bb;
+  color: #231b18;
+}
+.gender button.active.girl {
+  background: #ff6392;
+  color: #fff;
+}
+.gender button.active.boy {
+  background: #5aa9e6;
+  color: #fff;
+}
