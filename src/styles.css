@@ -1,51 +1,43 @@
-/* ===== Farb-Variablen (aus deiner Tailwind-Config) ===== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ Farben ============ */
 :root {
-  --primary:        #dc758a;
-  --pink:           #ff6392;  /* Wunschpink */
-  --lightpink:      #fba9bb;
+  --pink: #ff6392;
+  --blue: #5aa9e6;
+  --lightpink: #fba9bb;
   --extralightpink: #f8e5e9;
-  --blue:           #5aa9e6;  /* Jungen */
-  --cream:          #fef5ce;
-  --textdark:       #231b18;
-
-  --whoGreen:       #2e7d32;  /* Z0 */
-  --whoRed:         #c62828;  /* Z±2 */
-  --whoBlack:       #212121;  /* Z±3 */
+  --cream: #fef5ce;
+  --textdark: #231b18;
+  --whoGreen: #2e7d32;   /* Z0 */
+  --whoRed: #c62828;     /* Z±2 */
+  --whoBlack: #212121;   /* Z±3 */
 }
 
-/* Grundfarben für Seite – nur Farbe, kein Layout */
-body { color: var(--textdark); background-color: var(--cream); }
-
-/* ===== Buttons – NUR Farbe, keine Form-Änderung ===== */
-/* Primärbutton (z.B. “+ Messwert hinzufügen”) */
+/* ============ Buttons ============ */
 .btn-primary {
-  background-color: var(--pink) !important;
-  color: #fff !important;
-  border-color: var(--pink) !important;
+  @apply inline-flex items-center justify-center font-semibold text-white rounded-md px-4 py-2;
+  background-color: var(--pink);
 }
-.btn-primary:hover  { background-color: #ff5789 !important; }
-.btn-primary:active { background-color: #ff4b80 !important; }
-
-/* Optional: Buttons für Geschlecht, falls du diese Klassen nutzt */
-.btn-girl, .sex-girl {
-  background-color: var(--pink) !important;
-  color: #fff !important;
-  border-color: var(--pink) !important;
+.btn-primary:hover {
+  filter: brightness(0.95);
 }
-.btn-boy, .sex-boy {
-  background-color: var(--blue) !important;
-  color: #fff !important;
-  border-color: var(--blue) !important;
+.btn-primary:active {
+  filter: brightness(0.9);
 }
 
-/* ===== Inputs – nur Fokusfarbe, keine Form ===== */
-.input:focus {
-  border-color: var(--pink) !important;
-  outline: none !important;
-  box-shadow: 0 0 0 2px rgba(255, 99, 146, .30) !important; /* nur Farbe */
+/* Geschlechtsauswahl-Buttons */
+.btn-gender {
+  @apply inline-flex items-center justify-center font-semibold text-white rounded-md px-4 py-2;
 }
-
-/* ===== WHO-Farben als Hilfsklassen (nur Farbe) ===== */
-.text-who-green { color: var(--whoGreen) !important; }
-.text-who-red   { color: var(--whoRed) !important; }
-.text-who-black { color: var(--whoBlack) !important; }
+.btn-gender.girl {
+  background-color: var(--pink);
+}
+.btn-gender.boy {
+  background-color: var(--blue);
+}
+.btn-gender.inactive {
+  background-color: var(--lightpink);
+  color: var(--textdark);
+}
