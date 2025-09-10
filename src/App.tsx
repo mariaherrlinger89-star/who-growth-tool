@@ -69,7 +69,7 @@ export default function App() {
                     Mädchen
                   </button>
                   <button
-                    className={`btn-primary ${sex === "boy" ? "" : "bg-pink text-textdark"}`}
+                    className={`btn-primary ${sex === "boy" ? "" : "bg-blue text-textdark"}`}
                     onClick={() => setSex("boy")}
                   >
                     Junge
