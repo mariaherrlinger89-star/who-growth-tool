@@ -14,6 +14,7 @@ import {
 } from "chart.js";
 import { fromZ } from "../lib/zscore";
 import { getLms } from "../lib/lms";
+import type { RefObject } from "react";            // ← NEU: für den Ref-Typ
 
 // --- Konstanten ---
 const DAYS_PER_MONTH = 30.4375;
@@ -61,7 +62,14 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 type Row = { date: string; weight_g: number; ageDays: number; z: number | null };
 
-export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row[] }) {
+// ← NEU: Props erlauben optional einen chartRef
+type Props = {
+  sex: "girl" | "boy";
+  rows: Row[];
+  chartRef?: RefObject<any>;
+};
+
+export default function WhoChart({ sex, rows, chartRef }: Props) {
   // WHO-Referenz wöchentlich bis 6 Monate sampeln (glatte Linien)
   const sampleWeeks = Array.from({ length: Math.floor(MAX_WEEKS) + 1 }, (_, i) => i); // 0..26
   const sampleDays  = sampleWeeks.map((w) => Math.round(w * 7));
@@ -105,18 +113,18 @@ export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row
         ticks: {
           autoSkip: false,               // NICHT überspringen – wir setzen die Ticks selbst
           callback: (v: number) => {
-          // Bis Woche 13 nur jede 2. Woche anzeigen,
-          // danach wieder die Monats-Ticks (4,5,6)
-          if (v <= 13 && v % 2 === 0) return v.toString();
-          if (v > 13) return labelForWeekValue(v); // Monat 4–6
-          return "";
-            },
+            // Bis Woche 13 nur jede 2. Woche anzeigen,
+            // danach wieder die Monats-Ticks (4,5,6)
+            if (v <= 13 && (v as number) % 2 === 0) return v.toString();
+            if (v > 13) return labelForWeekValue(v as number); // Monat 4–6
+            return "";
+          },
           maxRotation: 0,
           minRotation: 0,
-           font: {
-          size: 8,           // <- hier gewünschte px-Zahl eintragen
-          family: "Inter, sans-serif",
-        },
+          font: {
+            size: 8,           // Schriftgröße der Ticklabels (px)
+            family: "Inter, sans-serif",
+          },
         },
         title: { display: true, text: "Alter (0–13 Wochen, danach Monate 4–6)" },
       },
@@ -159,7 +167,8 @@ export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row
 
   return (
     <div className="relative" style={{ height: 560 }}>
-      <Line data={data as any} options={options} plugins={[enforceCustomXTicks]} />
+      {/* ← NEU: ref anbinden, damit der Export das Canvas greifen kann */}
+      <Line ref={chartRef as any} data={data as any} options={options} plugins={[enforceCustomXTicks]} />
     </div>
   );
 }
