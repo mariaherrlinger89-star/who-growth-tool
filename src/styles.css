@@ -1,85 +1,30 @@
-/* ===== Basis ===== */
-html, body {
-  background: #ffffff; /* weißer Haupthintergrund */
-  font-family: Inter, system-ui, Arial, sans-serif;
-  color: #231b18;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
 }
 
-/* Labels */
+html, body, #root {
+  height: 100%;
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-soft p-6;
+}
+
 .label {
-  font-weight: 500;
-  font-size: 0.95rem;
+  @apply text-sm text-textdark/70;
 }
 
-/* Inputs */
 .input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
-.input:focus {
-  outline: none;
-  border-color: #ff6392;
-  box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.25);
+  @apply w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary;
 }
 
-/* ===== Primäre Buttons (z. B. +Messwert, +/-) – unverändert in Pink ===== */
 .btn-primary {
-  background-color: #ff6392;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-.btn-primary:hover  { background-color: #e55882; }
-.btn-primary:active { background-color: #cc4a70; }
-
-/* ===== Gender-Buttons (Mädchen / Junge) – gelb, gleiche Form wie btn-primary ===== */
-.gender {
-  display: flex;
-  gap: 0.5rem;
+  @apply inline-flex items-center justify-center rounded-lg bg-primary text-white px-4 py-2 font-medium hover:opacity-90 active:opacity-80;
 }
 
-/* Basis: hellgelb = nicht ausgewählt (immer sichtbar) */
-.gender button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ddd;
-  font-weight: 600;
-  line-height: 1;
-  cursor: pointer;
-  color: #231b18;
-  background-color: #fff4b0;   /* helles Gelb */
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-/* Hover/Klick-Feedback (Momentzustand) */
-.gender button:hover  { background-color: #ffe17a; } /* etwas kräftiger */
-.gender button:active { background-color: #ffd556; } /* noch kräftiger */
-
-/* Ausgewählt: dauerhaft dunkler gelb */
-.gender button.active {
-  background-color: #ffcc33;   /* deutlich dunkler = ausgewählt */
-  border-color: #e6b800;
-  color: #231b18;
-}
-
-/* (Optional) Explizit für Lesbarkeit – verhalten identisch */
-.gender button.girl { /* inherits yellow */ }
-.gender button.boy  { /* inherits yellow */ }
-
-/* Tastaturfokus sichtbar */
-.gender button:focus {
-  outline: 3px solid rgba(0,0,0,0.2);
-  outline-offset: 2px;
-}
+.badge-ok { @apply inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-xs; }
+.badge-warn { @apply inline-flex items-center rounded-full bg-red-100 text-red-700 px-2 py-0.5 text-xs; }
