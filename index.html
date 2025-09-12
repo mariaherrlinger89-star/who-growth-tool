@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Gewichtskurven erstellen nach WHO – Tool von eazy-mama.de</title>
     <link rel="icon" href="/favicon EM2.svg" />
-    <!-- Tailwind via CDN: kein PostCSS/Build nötig -->
+
+    <!-- Webfonts: Barlow (300/400/700) & Sailors Condensed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&family=Sailors+Condensed&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -24,14 +33,19 @@
               whoRed: "#c62828",
               whoBlack: "#212121"
             },
-            fontFamily: { inter: ["Inter","system-ui","Arial","sans-serif"] },
+            fontFamily: {
+              inter: ["Inter","system-ui","Arial","sans-serif"],
+              barlow: ["Barlow","Inter","system-ui","Arial","sans-serif"],
+              sailors: ["Sailors Condensed","Barlow","Inter","system-ui","Arial","sans-serif"]
+            },
             boxShadow: { soft: "0 6px 20px rgba(0,0,0,0.06)" }
           }
         }
       }
     </script>
   </head>
-  <body class="bg-cream">
+  <!-- Standard-Schrift = Barlow -->
+  <body class="bg-cream font-barlow">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
