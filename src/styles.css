@@ -85,3 +85,21 @@ body {
   outline: 3px solid rgba(0, 0, 0, 0.2);
   outline-offset: 2px;
 }
+/* ===== OVERRIDES: ans ENDE der styles.css setzen ===== */
+
+/* 1) Hintergrund: komplett weiß */
+html, body, #root, .app, .container {
+  background: #ffffff !important; /* sticht alte gelbe Flächen aus */
+}
+
+/* 2) Gender-Buttons: gelb (hell = inaktiv), dunkler = aktiv */
+.gender {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Basis-Look wie bei btn-primary (abgerundete Ecken etc.) */
+.gender > button {
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem !important;
+
