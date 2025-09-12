@@ -1,6 +1,6 @@
 /* ===== Basis ===== */
-body {
-  background: #ffffff; /* vorher: #fef5ce */
+html, body {
+  background: #ffffff; /* weißer Haupthintergrund */
   font-family: Inter, system-ui, Arial, sans-serif;
   color: #231b18;
 }
@@ -25,7 +25,7 @@ body {
   box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.25);
 }
 
-/* ===== Primäre Buttons (z. B. +Messwert, –) ===== */
+/* ===== Primäre Buttons (z. B. +Messwert, +/-) – unverändert in Pink ===== */
 .btn-primary {
   background-color: #ff6392;
   color: #fff;
@@ -44,108 +44,42 @@ body {
 .btn-primary:hover  { background-color: #e55882; }
 .btn-primary:active { background-color: #cc4a70; }
 
-/* ===== Gender Buttons (Mädchen / Junge) – gelb, wie Buttons sichtbar ===== */
-/* Hinweis: Diese Regeln dürfen die alten .gender-Styles ersetzen.
-   Falls du woanders !important gesetzt hattest, hier setzen wir es gezielt,
-   damit NUR die Gender-Buttons gelb sind. */
+/* ===== Gender-Buttons (Mädchen / Junge) – gelb, gleiche Form wie btn-primary ===== */
 .gender {
   display: flex;
   gap: 0.5rem;
 }
 
+/* Basis: hellgelb = nicht ausgewählt (immer sichtbar) */
 .gender button {
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;        /* gleiche Rundung wie btn-primary */
+  border-radius: 0.5rem;
   border: 1px solid #ddd;
   font-weight: 600;
+  line-height: 1;
   cursor: pointer;
   color: #231b18;
+  background-color: #fff4b0;   /* helles Gelb */
   transition: background-color 0.2s ease, border-color 0.2s ease;
-  background-color: #fff4b0 !important; /* hell-gelb = inaktiv sichtbar */
 }
 
-/* Hover/Active (Mausklick) Feedback – unabhängig vom Status */
-.gender button:hover  { background-color: #ffe17a !important; }
-.gender button:active { background-color: #ffd556 !important; }
+/* Hover/Klick-Feedback (Momentzustand) */
+.gender button:hover  { background-color: #ffe17a; } /* etwas kräftiger */
+.gender button:active { background-color: #ffd556; } /* noch kräftiger */
 
-/* Dauerhaft ausgewählt (per .active) = etwas dunkler gelb */
+/* Ausgewählt: dauerhaft dunkler gelb */
 .gender button.active {
-  background-color: #ffcc33 !important;
+  background-color: #ffcc33;   /* deutlich dunkler = ausgewählt */
   border-color: #e6b800;
   color: #231b18;
 }
 
-/* Optional: gleiche Regeln explizit für girl/boy,
-   falls dein Markup diese Klassen setzt */
-.gender button.girl { /* inherits base yellow */ }
-.gender button.boy  { /* inherits base yellow */ }
+/* (Optional) Explizit für Lesbarkeit – verhalten identisch */
+.gender button.girl { /* inherits yellow */ }
+.gender button.boy  { /* inherits yellow */ }
 
-/* Tastaturfokus sichtbar machen */
+/* Tastaturfokus sichtbar */
 .gender button:focus {
-  outline: 3px solid rgba(0, 0, 0, 0.2);
+  outline: 3px solid rgba(0,0,0,0.2);
   outline-offset: 2px;
 }
-/* ===== OVERRIDES: ans ENDE der styles.css setzen ===== */
-
-/* 1) Hintergrund: komplett weiß */
-html, body, #root, .app, .container {
-  background: #ffffff !important; /* sticht alte gelbe Flächen aus */
-}
-
-/* 2) Gender-Buttons: gelb (hell = inaktiv), dunkler = aktiv */
-.gender {
-  display: flex;
-  gap: 0.5rem;
-}
-
-/* Basis-Look wie bei btn-primary (abgerundete Ecken etc.) */
-.gender > button {
-  padding: 0.5rem 1rem !important;
-  border-radius: 0.5rem !important;
-
-  /* =========================
-   OVERRIDES – GANZ ANS ENDE
-   ========================= */
-
-/* 1) Hintergrund überall weiß erzwingen */
-:root,
-html,
-body,
-#root,
-#app,
-.app,
-.container,
-.page,
-.wrapper,
-main {
-  background-color: #ffffff !important;
-}
-
-/* 2) Gender-Buttons: sichtbare gelbe Buttons (hell = inaktiv, dunkler = aktiv) */
-.gender {
-  display: flex;
-  gap: 0.5rem;
-}
-
-/* robust: greift für button, .btn, role="button", .girl/.boy */
-.gender button,
-.gender .btn,
-.gender [role="button"],
-.gender .girl,
-.gender .boy {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  padding: 0.5rem 1rem !important;
-  border-radius: 0.5rem !important;     /* wie "+ Messwert hinzufügen" */
-  border: 1px solid #ddd !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
-  cursor: pointer !important;
-  color: #231b18 !important;
-
-  /* inaktiv = hellgelb, immer sichtbar */
-  background-color: #fff4b
-
-
