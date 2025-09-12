@@ -44,44 +44,5 @@ body {
 .btn-primary:hover  { background-color: #e55882; }
 .btn-primary:active { background-color: #cc4a70; }
 
-/* ===== Gender Buttons (Mädchen / Junge) – gelb, wie Buttons sichtbar ===== */
-/* Hinweis: Diese Regeln dürfen die alten .gender-Styles ersetzen.
-   Falls du woanders !important gesetzt hattest, hier setzen wir es gezielt,
-   damit NUR die Gender-Buttons gelb sind. */
-.gender {
-  display: flex;
-  gap: 0.5rem;
-}
 
-.gender button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;        /* gleiche Rundung wie btn-primary */
-  border: 1px solid #ddd;
-  font-weight: 600;
-  cursor: pointer;
-  color: #231b18;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-  background-color: #fff4b0 !important; /* hell-gelb = inaktiv sichtbar */
-}
-
-/* Hover/Active (Mausklick) Feedback – unabhängig vom Status */
-.gender button:hover  { background-color: #ffe17a !important; }
-.gender button:active { background-color: #ffd556 !important; }
-
-/* Dauerhaft ausgewählt (per .active) = etwas dunkler gelb */
-.gender button.active {
-  background-color: #ffcc33 !important;
-  border-color: #e6b800;
-  color: #231b18;
-}
-
-/* Optional: gleiche Regeln explizit für girl/boy,
-   falls dein Markup diese Klassen setzt */
-.gender button.girl { /* inherits base yellow */ }
-.gender button.boy  { /* inherits base yellow */ }
-
-/* Tastaturfokus sichtbar machen */
-.gender button:focus {
-  outline: 3px solid rgba(0, 0, 0, 0.2);
-  outline-offset: 2px;
 }
