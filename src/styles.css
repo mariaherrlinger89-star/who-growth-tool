@@ -45,4 +45,30 @@ body {
 .btn-primary:active { background-color: #cc4a70; }
 
 
+}/* ===== Gender Buttons: Gelb hell/dunkel ===== */
+.gender-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  color: #231b18;
+  background-color: #fff4b0;           /* hellgelb = inaktiv */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
+
+.gender-btn:hover {
+  background-color: #ffe17a;           /* etwas kräftiger beim Hover */
+}
+
+.gender-btn.active {
+  background-color: #ffcc33;           /* dunkler gelb = aktiv */
+  border-color: #e6b800;
+}
+
+.gender-btn:focus {
+  outline: 3px solid rgba(0,0,0,0.2);
+  outline-offset: 2px;
+}
+
