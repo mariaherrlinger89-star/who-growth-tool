@@ -125,7 +125,7 @@ export default function App() {
 
           <div className="lg:col-span-2 card">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-lg font-semibold">Gewichtsentwicklung</h2>
+              <h2 className="text-lg font-sailors">Gewichtsentwicklung</h2>
               <div>{status}</div>
             </div>
             {/* Chart-Ref durchreichen */}
