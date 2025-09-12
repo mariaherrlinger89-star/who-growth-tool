@@ -32,7 +32,7 @@ export default function ExportPdfButton({
     // ===== Logo oben rechts (aus /public/logo.png) =====
     try {
       const logo = new Image();
-      logo.src = "/src/eazy mama logo pimk.png"; // lege dein Logo als public/logo.png ab
+      logo.src = "/eazy-mama-logo-pink.png"; // lege dein Logo als public/logo.png ab
       await new Promise<void>((resolve) => {
         logo.onload = () => resolve();
         logo.onerror = () => resolve(); // falls fehlend: PDF läuft trotzdem weiter
