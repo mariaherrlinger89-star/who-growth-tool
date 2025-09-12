@@ -103,3 +103,49 @@ html, body, #root, .app, .container {
   padding: 0.5rem 1rem !important;
   border-radius: 0.5rem !important;
 
+  /* =========================
+   OVERRIDES – GANZ ANS ENDE
+   ========================= */
+
+/* 1) Hintergrund überall weiß erzwingen */
+:root,
+html,
+body,
+#root,
+#app,
+.app,
+.container,
+.page,
+.wrapper,
+main {
+  background-color: #ffffff !important;
+}
+
+/* 2) Gender-Buttons: sichtbare gelbe Buttons (hell = inaktiv, dunkler = aktiv) */
+.gender {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* robust: greift für button, .btn, role="button", .girl/.boy */
+.gender button,
+.gender .btn,
+.gender [role="button"],
+.gender .girl,
+.gender .boy {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem !important;     /* wie "+ Messwert hinzufügen" */
+  border: 1px solid #ddd !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  color: #231b18 !important;
+
+  /* inaktiv = hellgelb, immer sichtbar */
+  background-color: #fff4b
+
+
