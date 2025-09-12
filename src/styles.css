@@ -47,28 +47,22 @@ body {
 
 }/* ===== Gender Buttons: Gelb hell/dunkel ===== */
 .gender-btn {
-  padding: 0.5rem 1rem;
+ background-color: #fff6c4;
+  color: #fff;
+  border: none;
   border-radius: 0.5rem;
-  border: 1px solid #ddd;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  color: #231b18;
-  background-color: #fff4b0;           /* hellgelb = inaktiv */
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+.btn-primary:hover  { background-color: #ffe97d; }
+.btn-primary:active { background-color: #ffe45e; }
 }
 
-.gender-btn:hover {
-  background-color: #ffe17a;           /* etwas kräftiger beim Hover */
-}
-
-.gender-btn.active {
-  background-color: #ffcc33;           /* dunkler gelb = aktiv */
-  border-color: #e6b800;
-}
-
-.gender-btn:focus {
-  outline: 3px solid rgba(0,0,0,0.2);
-  outline-offset: 2px;
-}
 
