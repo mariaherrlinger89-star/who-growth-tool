@@ -45,10 +45,10 @@ body {
 .btn-primary:active { background-color: #cc4a70; }
 
 
-}/* ===== Gender Buttons: Gelb hell/dunkel ===== */
+/* ===== Gender Buttons: Gelb hell/dunkel ===== */
 .gender-btn {
  background-color: #fff6c4;
-  color: #fff;
+  color: #000000;
   border: none;
   border-radius: 0.5rem;
   padding: 0.6rem 1rem;
@@ -61,8 +61,8 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-.btn-primary:hover  { background-color: #ffe97d; }
-.btn-primary:active { background-color: #ffe45e; }
-}
+.gender-btn:hover  { background-color: #ffe97d; }
+.gender-btn:active { background-color: #ffe45e; }
+
 
 
