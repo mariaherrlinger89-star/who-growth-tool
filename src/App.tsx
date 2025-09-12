@@ -48,10 +48,10 @@ export default function App() {
   })();
 
   return (
-    <div className="min-h-screen bg-white text-textdark font-inter">
+    <div className="min-h-screen bg-white text-textdark font-sailors">
       <header className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex items-center gap-3">
-          <h1 className="text-xl font-semibold">WHO Gewichtskurven (0–6 Monate) – eazy-mama.de</h1>
+          <h1 className="text-xl font-sailors">WHO Gewichtskurven (0–6 Monate)</h1>
         </div>
       </header>
 
