@@ -24,7 +24,7 @@ const MAX_WEEKS = MAX_MONTHS * WEEKS_PER_MONTH;  // ≈ 26.1
 // Hybrid-Aufteilung der X-Achse:
 // 0–13 Wochen belegen 60%, Monate 4–6 belegen 40%
 const WEEKS_SECTION_MAX = 13;
-const MONTHS_START = 4;
+const MONTHS_START = 3;
 const MONTHS_END = 6;
 const SHARE_WEEKS = 0.60;               // 60% Breite für Wochen
 const SHARE_MONTHS = 1 - SHARE_WEEKS;   // 40% Breite für Monate
