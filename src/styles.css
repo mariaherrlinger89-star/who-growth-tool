@@ -1,4 +1,4 @@
-/* ===== Basis (unverändert) ===== */
+/* ===== Basis ===== */
 body {
   background: #fef5ce;
   font-family: Inter, system-ui, Arial, sans-serif;
@@ -25,13 +25,12 @@ body {
   box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.25);
 }
 
-/* ===== Buttons – gleiche Farbe, abgerundete Ecken ===== */
-/* Nutze diese Klasse überall für Buttons (z. B. "+ Messwert hinzufügen", "–", etc.) */
+/* ===== Primäre Buttons (z. B. +Messwert, -) ===== */
 .btn-primary {
-  background-color: #ff6392 !important;  /* einheitlich pink */
-  color: #fff !important;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;                  /* leichte Rundung */
+  background-color: #ff6392;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
   padding: 0.6rem 1rem;
   font-size: 1rem;
   font-weight: 600;
@@ -40,22 +39,47 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color .2s ease;
+  transition: background-color 0.2s ease;
 }
-.btn-primary:hover  { background-color: #e55882 !important; }
-.btn-primary:active { background-color: #cc4a70 !important; }
+.btn-primary:hover  { background-color: #e55882; }
+.btn-primary:active { background-color: #cc4a70; }
 
-/* Falls deine Geschlechts-Buttons KEINE .btn-primary haben,
-   aber in einem .gender-Container liegen, gib ihnen denselben Look: */
+/* ===== Gender Buttons (Mädchen / Junge) ===== */
+.gender {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .gender button {
-  background-color: #ff6392 !important;
-  color: #fff !important;
-  border: 1px solid #ddd; 
-  border-radius: 0.5rem;
   padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color .2s ease;
+  transition: background-color 0.2s ease;
+  color: #231b18;
 }
-.gender button:hover  { background-color: #e55882 !important; }
-.gender button:active { background-color: #cc4a70 !important; }
+
+/* Mädchen */
+.gender button.girl {
+  background-color: #fba9bb;
+}
+.gender button.girl.active {
+  background-color: #ff6392;
+  color: #fff;
+}
+
+/* Junge */
+.gender button.boy {
+  background-color: #7fc8f8;
+}
+.gender button.boy.active {
+  background-color: #5aa9e6;
+  color: #fff;
+}
+
+/* Tastaturfokus sichtbar machen */
+.gender button:focus {
+  outline: 3px solid rgba(0, 0, 0, 0.2);
+  outline-offset: 2px;
+}
