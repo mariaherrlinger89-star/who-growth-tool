@@ -108,7 +108,7 @@ export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row
           maxRotation: 0,
           minRotation: 0,
            font: {
-          size: 10,           // <- hier gewünschte px-Zahl eintragen
+          size: 8,           // <- hier gewünschte px-Zahl eintragen
           family: "Inter, sans-serif",
         },
         },
