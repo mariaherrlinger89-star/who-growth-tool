@@ -3,7 +3,7 @@ import MeasurementForm, { Measurement } from "./components/MeasurementForm";
 import WhoChart from "./components/WhoChart";
 import { computeZ } from "./lib/zscore";
 import { loadLms } from "./lib/lms";
-import logo from "./assets/logo.png"
+import logo from "./eazy mama logo pimk.png"
 type Sex = "girl" | "boy";
 
 export default function App() {
