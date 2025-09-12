@@ -30,7 +30,7 @@ body {
 .btn-primary {
   background-color: #ff6392 !important;  /* einheitlich pink */
   color: #fff !important;
-  border: none !important;
+  border: 1px solid #ddd;
   border-radius: 0.5rem;                  /* leichte Rundung */
   padding: 0.6rem 1rem;
   font-size: 1rem;
@@ -50,7 +50,7 @@ body {
 .gender button {
   background-color: #ff6392 !important;
   color: #fff !important;
-  border: none !important;
+  border: 1px solid #ddd; 
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   font-weight: 600;
