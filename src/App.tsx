@@ -63,7 +63,7 @@ export default function App() {
                 <label className="label">Geschlecht</label>
                 <div className="mt-1 flex gap-2">
                   <button
-                      type="button"
+                      className="btn-primary w-full"
                       className={`girl ${sex === "girl" ? "active" : ""}`}
                       aria-pressed={sex === "girl"}
                       onClick={() => setSex("girl")}
