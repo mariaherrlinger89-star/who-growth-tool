@@ -1,4 +1,4 @@
-/* ========= Ursprüngliche Styles ========== */
+/* ========= Ursprüngliche Styles ========= */
 
 body {
   background: #fef5ce;
@@ -12,12 +12,12 @@ body {
   font-size: 0.95rem;
 }
 
-/* Input */
+/* Input-Felder */
 .input {
   width: 100%;
   padding: 0.5rem 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 0.5rem;   /* kleine Rundung */
+  border-radius: 0.5rem;   /* leichte Rundung */
   font-size: 1rem;
 }
 .input:focus {
@@ -26,57 +26,21 @@ body {
   box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.25);
 }
 
-/* Buttons */
+/* Buttons – einheitlich pink mit abgerundeten Ecken */
 button {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
-
-/* Primärer Button (z. B. + Messwert hinzufügen, Minus) */
-.btn-primary {
-  background-color: #ff6392;  /* Pink */
+  background-color: #ff6392;   /* einheitliche Farbe */
   border: none;
-  border-radius: 0.5rem;     /* kleine Rundung */
+  border-radius: 0.5rem;       /* leichte Rundung */
   padding: 0.6rem 1rem;
   font-size: 1rem;
   color: #fff;
 }
-.btn-primary:hover {
+button:hover {
   background-color: #e55882;
 }
-.btn-primary:active {
+button:active {
   background-color: #cc4a70;
-}
-
-/* Geschlechtswahl Buttons */
-.gender button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;  /* kleine Rundung */
-  border: 1px solid #ddd;
-  background: #fba9bb;
-  color: #231b18;
-}
-.gender button.active.girl {
-  background: #ff6392;
-  color: #fff;
-}
-.gender button.active.boy {
-  background: #7fc8f8;
-  color: #fff;
-}
-/* Jungen-Button */
-.btn-boy {
-  background-color: #7fc8f8; /* Basis-Blau */
-  color: #231b18;           /* dunkler Text */
-}
-.btn-boy.active {
-  background-color: #5aa9e6; /* satteres Blau */
-  color: #fff;              /* weiße Schrift */
-}
-
-/* Mädchen-Button (falls analog gewünscht) */
-.btn-girl {
-  background-color: #ff6392;
-  color: #fff;
 }
