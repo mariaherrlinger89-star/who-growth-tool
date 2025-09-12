@@ -29,23 +29,34 @@ export default function ExportPdfButton({
     const margin = 40;
     let y = margin;
 
-    // ===== Logo oben rechts (aus /public/logo.png) =====
+    // ===== Kopfzeile: Logo oben rechts (aus /public/eazy-mama-pink-logo.png) =====
+    // NEU: feste Kopfzeilenhöhe, Inhalt startet darunter
+    const HEADER_MIN = 120;                // Mindesthöhe der Kopfzeile (anpassbar)
+    let headerBottom = margin + HEADER_MIN;
+
     try {
       const logo = new Image();
-      logo.src = "/eazy-mama-pink-logo.png"; // lege dein Logo als public/logo.png ab
+      logo.src = "/eazy-mama-pink-logo.png"; // liegt in public/
       await new Promise<void>((resolve) => {
         logo.onload = () => resolve();
-        logo.onerror = () => resolve(); // falls fehlend: PDF läuft trotzdem weiter
+        logo.onerror = () => resolve(); // falls fehlend: PDF läuft weiter
       });
       if (logo.width && logo.height) {
         const logoW = 90; // Breite in pt
         const logoH = (logo.height * logoW) / logo.width;
-        const logoX = pageW - margin - logoW; // rechts ausrichten
-        doc.addImage(logo, "PNG", logoX, y, logoW, logoH);
+        const logoX = pageW - margin - logoW; // rechtsbündig
+        const logoY = margin;
+        doc.addImage(logo, "PNG", logoX, logoY, logoW, logoH);
+
+        // Kopfzeilen-Unterkante berücksichtigen
+        headerBottom = Math.max(headerBottom, margin + logoH);
       }
     } catch {
       // Logo optional – kein Abbruch
     }
+
+    // >>> Inhalt unterhalb der Kopfzeile starten
+    y = headerBottom + 16; // kleiner Abstand unter der Kopfzeile
 
     // Titel
     doc.setFont("helvetica", "bold");
@@ -117,7 +128,7 @@ export default function ExportPdfButton({
       if (y > 800) {
         drawFooter(doc, pageW, pageH, margin);
         doc.addPage();
-        y = margin;
+        y = margin; // (Kopfzeile nur auf Seite 1 – unverändert)
       }
     });
 
