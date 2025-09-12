@@ -1,23 +1,22 @@
-/* ========= Ursprüngliche Styles ========= */
-
+/* ===== Basis (unverändert) ===== */
 body {
   background: #fef5ce;
   font-family: Inter, system-ui, Arial, sans-serif;
   color: #231b18;
 }
 
-/* Label */
+/* Labels */
 .label {
   font-weight: 500;
   font-size: 0.95rem;
 }
 
-/* Input-Felder */
+/* Inputs */
 .input {
   width: 100%;
   padding: 0.5rem 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 0.5rem;   /* leichte Rundung */
+  border-radius: 0.5rem;
   font-size: 1rem;
 }
 .input:focus {
@@ -26,21 +25,37 @@ body {
   box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.25);
 }
 
-/* Buttons – einheitlich pink mit abgerundeten Ecken */
-button {
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  background-color: #ff6392;   /* einheitliche Farbe */
-  border: none;
-  border-radius: 0.5rem;       /* leichte Rundung */
+/* ===== Buttons – gleiche Farbe, abgerundete Ecken ===== */
+/* Nutze diese Klasse überall für Buttons (z. B. "+ Messwert hinzufügen", "–", etc.) */
+.btn-primary {
+  background-color: #ff6392 !important;  /* einheitlich pink */
+  color: #fff !important;
+  border: none !important;
+  border-radius: 0.5rem;                  /* leichte Rundung */
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  color: #fff;
+  font-weight: 600;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .2s ease;
 }
-button:hover {
-  background-color: #e55882;
+.btn-primary:hover  { background-color: #e55882 !important; }
+.btn-primary:active { background-color: #cc4a70 !important; }
+
+/* Falls deine Geschlechts-Buttons KEINE .btn-primary haben,
+   aber in einem .gender-Container liegen, gib ihnen denselben Look: */
+.gender button {
+  background-color: #ff6392 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s ease;
 }
-button:active {
-  background-color: #cc4a70;
-}
+.gender button:hover  { background-color: #e55882 !important; }
+.gender button:active { background-color: #cc4a70 !important; }
