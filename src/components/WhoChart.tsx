@@ -104,7 +104,12 @@ export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row
         },
         ticks: {
           autoSkip: false,               // NICHT überspringen – wir setzen die Ticks selbst
-          callback: (v: number) => labelForWeekValue(v),
+          callback: (v: number) => {
+          // Bis Woche 13 nur jede 2. Woche anzeigen,
+          // danach wieder die Monats-Ticks (4,5,6)
+          if (v <= 13 && v % 2 === 0) return v.toString();
+          if (v > 13) return labelForWeekValue(v); // Monat 4–6
+          return "";
           maxRotation: 0,
           minRotation: 0,
            font: {
