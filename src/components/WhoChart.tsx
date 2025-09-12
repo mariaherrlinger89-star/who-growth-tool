@@ -107,6 +107,10 @@ export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row
           callback: (v: number) => labelForWeekValue(v),
           maxRotation: 0,
           minRotation: 0,
+           font: {
+          size: 10,           // <- hier gewünschte px-Zahl eintragen
+          family: "Inter, sans-serif",
+        },
         },
         title: { display: true, text: "Alter (0–13 Wochen, danach Monate 4–6)" },
       },
