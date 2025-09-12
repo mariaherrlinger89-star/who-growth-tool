@@ -1,6 +1,6 @@
 /* ===== Basis ===== */
 body {
-  background: #fef5ce;
+  background: #ffffff; /* vorher: #fef5ce */
   font-family: Inter, system-ui, Arial, sans-serif;
   color: #231b18;
 }
@@ -25,7 +25,7 @@ body {
   box-shadow: 0 0 0 2px rgba(255, 99, 146, 0.25);
 }
 
-/* ===== Primäre Buttons (z. B. +Messwert, -) ===== */
+/* ===== Primäre Buttons (z. B. +Messwert, –) ===== */
 .btn-primary {
   background-color: #ff6392;
   color: #fff;
@@ -44,7 +44,10 @@ body {
 .btn-primary:hover  { background-color: #e55882; }
 .btn-primary:active { background-color: #cc4a70; }
 
-/* ===== Gender Buttons (Mädchen / Junge) ===== */
+/* ===== Gender Buttons (Mädchen / Junge) – gelb, wie Buttons sichtbar ===== */
+/* Hinweis: Diese Regeln dürfen die alten .gender-Styles ersetzen.
+   Falls du woanders !important gesetzt hattest, hier setzen wir es gezielt,
+   damit NUR die Gender-Buttons gelb sind. */
 .gender {
   display: flex;
   gap: 0.5rem;
@@ -52,31 +55,30 @@ body {
 
 .gender button {
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem;        /* gleiche Rundung wie btn-primary */
   border: 1px solid #ddd;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  color: #231b18;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  background-color: #fff4b0 !important; /* hell-gelb = inaktiv sichtbar */
+}
+
+/* Hover/Active (Mausklick) Feedback – unabhängig vom Status */
+.gender button:hover  { background-color: #ffe17a !important; }
+.gender button:active { background-color: #ffd556 !important; }
+
+/* Dauerhaft ausgewählt (per .active) = etwas dunkler gelb */
+.gender button.active {
+  background-color: #ffcc33 !important;
+  border-color: #e6b800;
   color: #231b18;
 }
 
-/* Mädchen */
-.gender button.girl {
-  background-color: #fba9bb;
-}
-.gender button.girl.active {
-  background-color: #ff6392;
-  color: #fff;
-}
-
-/* Junge */
-.gender button.boy {
-  background-color: #7fc8f8;
-}
-.gender button.boy.active {
-  background-color: #5aa9e6;
-  color: #fff;
-}
+/* Optional: gleiche Regeln explizit für girl/boy,
+   falls dein Markup diese Klassen setzt */
+.gender button.girl { /* inherits base yellow */ }
+.gender button.boy  { /* inherits base yellow */ }
 
 /* Tastaturfokus sichtbar machen */
 .gender button:focus {
