@@ -41,7 +41,7 @@ export default function App() {
   })();
 
   return (
-    <div className="min-h-screen bg-cream text-textdark font-inter">
+    <div className="min-h-screen bg-white text-textdark font-inter">
       <header className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex items-center gap-3">
           <div className="h-8 w-8 rounded-full bg-primary"></div>
