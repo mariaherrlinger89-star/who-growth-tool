@@ -110,6 +110,7 @@ export default function WhoChart({ sex, rows }: { sex: "girl" | "boy"; rows: Row
           if (v <= 13 && v % 2 === 0) return v.toString();
           if (v > 13) return labelForWeekValue(v); // Monat 4–6
           return "";
+            }
           maxRotation: 0,
           minRotation: 0,
            font: {
