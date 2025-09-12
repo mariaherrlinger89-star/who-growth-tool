@@ -47,7 +47,7 @@ export default function App() {
           <img
   src={logo}
   alt="eazy mama Logo"
-  className="h-18"
+  className="h-14"
 />
           <h1 className="text-xl font-semibold">WHO Gewichtskurven (0–6 Monate) – eazy-mama.de</h1>
         </div>
