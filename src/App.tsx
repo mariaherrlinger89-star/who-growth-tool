@@ -1,20 +1,27 @@
-import { useEffect, useMemo, useState } from "react";
+// src/App.tsx
+import { useEffect, useMemo, useRef, useState } from "react";
 import MeasurementForm, { Measurement } from "./components/MeasurementForm";
 import WhoChart from "./components/WhoChart";
 import { computeZ } from "./lib/zscore";
 import { loadLms } from "./lib/lms";
-import logo from "./eazy mama logo pimk.png"
+import ExportPdfButton from "./components/ExportPdfButton"; // NEW
+import type { ChartJSOrUndefined } from "react-chartjs-2/dist/types"; // NEW
+import type { Chart } from "chart.js"; // NEW
+
 type Sex = "girl" | "boy";
 
 export default function App() {
+  const [childName, setChildName] = useState<string>(""); // NEW
   const [sex, setSex] = useState<Sex>("girl");
   const [dob, setDob] = useState<string>("");
   const [measurements, setMeasurements] = useState<Measurement[]>([]);
   const [lmsReady, setLmsReady] = useState<boolean>(false);
   const [note, setNote] = useState<string>("");
 
+  // Chart-Ref für PDF-Export
+  const chartRef = useRef<ChartJSOrUndefined<"line", any, unknown>>(null); // NEW
+
   useEffect(() => {
-    // LMS-Daten laden (vom Bootstrap erzeugte JSONs)
     loadLms().then(ok => {
       setLmsReady(ok);
       if (!ok) setNote("Hinweis: Fallback-Daten aktiv. Beim nächsten Build werden die WHO-Daten automatisch geladen.");
@@ -44,11 +51,6 @@ export default function App() {
     <div className="min-h-screen bg-white text-textdark font-inter">
       <header className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex items-center gap-3">
-          <img
-  src={logo}
-  alt="eazy mama Logo"
-  className="h-14"
-/>
           <h1 className="text-xl font-semibold">WHO Gewichtskurven (0–6 Monate) – eazy-mama.de</h1>
         </div>
       </header>
@@ -63,27 +65,38 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-1 card">
             <div className="space-y-4">
+              {/* NEW: Name vom Kind */}
+              <div>
+                <label className="label">Name vom Kind</label>
+                <input
+                  className="input mt-1"
+                  type="text"
+                  placeholder="z. B. Emma"
+                  value={childName}
+                  onChange={(e) => setChildName(e.target.value)}
+                />
+              </div>
+
               <div>
                 <label className="label">Geschlecht</label>
                 <div className="mt-1 flex gap-2">
-  <button
-    type="button"
-    className={`gender-btn girl ${sex === "girl" ? "active" : ""}`}
-    aria-pressed={sex === "girl"}
-    onClick={() => setSex("girl")}
-  >
-    Mädchen
-  </button>
-  <button
-    type="button"
-    className={`gender-btn boy ${sex === "boy" ? "active" : ""}`}
-    aria-pressed={sex === "boy"}
-    onClick={() => setSex("boy")}
-  >
-    Junge
-  </button>
-</div>
-
+                  <button
+                    type="button"
+                    className={`gender-btn ${sex === "girl" ? "active" : ""}`}
+                    aria-pressed={sex === "girl"}
+                    onClick={() => setSex("girl")}
+                  >
+                    Mädchen
+                  </button>
+                  <button
+                    type="button"
+                    className={`gender-btn ${sex === "boy" ? "active" : ""}`}
+                    aria-pressed={sex === "boy"}
+                    onClick={() => setSex("boy")}
+                  >
+                    Junge
+                  </button>
+                </div>
               </div>
 
               <div>
@@ -96,6 +109,14 @@ export default function App() {
                 onChange={setMeasurements}
               />
 
+              {/* NEW: PDF-Export */}
+              <ExportPdfButton
+                childName={childName}
+                sex={sex}
+                dob={dob}
+                rows={rows}
+                chartRef={chartRef}
+              />
               <div className="text-xs text-textdark/60">
                 <p>Hinweis: Z-Score innerhalb −2…+2 = Normbereich. LMS-Quelle: WHO Child Growth Standards (Weight-for-Age).</p>
               </div>
@@ -107,7 +128,8 @@ export default function App() {
               <h2 className="text-lg font-semibold">Gewichtsentwicklung</h2>
               <div>{status}</div>
             </div>
-            <WhoChart sex={sex} rows={rows} />
+            {/* Chart-Ref durchreichen */}
+            <WhoChart sex={sex} rows={rows} chartRef={chartRef} /> {/* NEW */}
             <div className="mt-3 text-xs text-center text-textdark/60">
               Interaktives WHO-Tool von <a href="https://www.eazy-mama.de" className="underline">eazy-mama.de</a>
             </div>
