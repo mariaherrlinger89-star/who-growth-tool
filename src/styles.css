@@ -64,5 +64,11 @@ body {
 .gender-btn:hover  { background-color: #ffe97d; }
 .gender-btn:active { background-color: #ffe45e; }
 
-
+/* Dauerhaft ausgewählt = dunkler gelb */
+.gender-btn.active,
+.gender-btn[aria-pressed="true"] {
+  background-color: #ffe45e;
+  border: 1px solid #e6b800; /* optionaler Rahmen für Klarheit */
+  color: #000;
+}
 
