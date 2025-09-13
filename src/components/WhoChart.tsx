@@ -187,7 +187,7 @@ export default function WhoChart({ sex, rows, chartRef }: Props) {
 
   return (
     // ✅ Volle Breite, mittig, KEIN horizontales Scrollen, keine feste Höhe nötig
-    <div className="w-full max-w-[520px] mx-auto px-2">
+    <div className="w-full max-w-[620px] mx-auto px-1">
       <Line
         ref={chartRef as any}                // für PDF-Export unverändert
         data={data as any}
