@@ -98,9 +98,17 @@ export default function WhoChart({ sex, rows, chartRef }: Props) {
   // Kinddaten in Wochen
   const childData = rows.map((r) => ({ x: r.ageDays / 7, y: r.weight_g / 1000 }));
 
+  // 🔎 Mobile-Erkennung (nur clientseitig aktiv)
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 480px)").matches;
+
   const options: any = {
     responsive: true,
-    maintainAspectRatio: false,
+    // ✅ Auf Mobile höher statt gequetscht: Höhe ergibt sich aus Breite
+    maintainAspectRatio: true,
+    aspectRatio: isMobile ? 0.70 : 1.6, // mobile „hochkant“, Desktop breiter
+    layout: { padding: { top: 6, right: 6, bottom: 6, left: 6 } },
     scales: {
       x: {
         type: "linear",
@@ -122,29 +130,41 @@ export default function WhoChart({ sex, rows, chartRef }: Props) {
           maxRotation: 0,
           minRotation: 0,
           font: {
-            size: 8,           // Schriftgröße der Ticklabels (px)
+            size: isMobile ? 9 : 11,
             family: "Inter, sans-serif",
           },
         },
-        title: { display: true, text: "Alter (0–13 Wochen, danach Monate 4–6)" },
+        title: {
+          display: true,
+          text: "Alter (0–13 Wochen, danach Monate 4–6)",
+          font: { size: isMobile ? 10 : 12 },
+        },
       },
       y: {
         type: "linear",
         min: 2,
         max: 12,
         grid: { color: "rgba(0,0,0,0.06)" },
-        ticks: { stepSize: 1 },
-        title: { display: true, text: "Gewicht (kg)" },
+        ticks: {
+          stepSize: 1,
+          font: { size: isMobile ? 9 : 11 },
+        },
+        title: { display: true, text: "Gewicht (kg)", font: { size: isMobile ? 10 : 12 } },
       },
     },
     plugins: {
       legend: {
         display: true,
+        position: isMobile ? "bottom" : "top",
         labels: {
           usePointStyle: true, // Linie in der Legende statt Box
           pointStyle: "line",
+          boxWidth: isMobile ? 12 : 20,
+          font: { size: isMobile ? 9 : 11 },
+          padding: isMobile ? 10 : 16,
         },
       },
+      tooltip: { intersect: false, mode: "index" },
     },
     elements: { line: { spanGaps: true } },
   };
@@ -166,12 +186,14 @@ export default function WhoChart({ sex, rows, chartRef }: Props) {
   };
 
   return (
-   <div
-    className="relative"
-    style={{ height: 560, minWidth: 320 }} // minWidth optional
-  >
-      {/* ← NEU: ref anbinden, damit der Export das Canvas greifen kann */}
-      <Line ref={chartRef as any} data={data as any} options={options} plugins={[enforceCustomXTicks]} />
+    // ✅ Volle Breite, mittig, KEIN horizontales Scrollen, keine feste Höhe nötig
+    <div className="w-full max-w-[520px] mx-auto px-2">
+      <Line
+        ref={chartRef as any}                // für PDF-Export unverändert
+        data={data as any}
+        options={options}
+        plugins={[enforceCustomXTicks]}
+      />
     </div>
   );
 }
