@@ -147,9 +147,9 @@ export default function WhoChart({ sex, rows, chartRef }: Props) {
         grid: { color: "rgba(0,0,0,0.06)" },
         ticks: {
           stepSize: 1,
-          font: { size: isMobile ? 9 : 11 },
+          font: { size: isMobile ? 7 : 10 },
         },
-        title: { display: true, text: "Gewicht (kg)", font: { size: isMobile ? 10 : 12 } },
+        title: { display: true, text: "Gewicht (kg)", font: { size: isMobile ? 8 : 10 } },
       },
     },
     plugins: {
