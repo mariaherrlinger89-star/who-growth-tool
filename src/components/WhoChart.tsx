@@ -167,7 +167,7 @@ export default function WhoChart({ sex, rows, chartRef }: Props) {
 
   return (
    <div
-    className="relative w-full overflow-x-auto"
+    className="relative"
     style={{ height: 560, minWidth: 320 }} // minWidth optional
   >
       {/* ← NEU: ref anbinden, damit der Export das Canvas greifen kann */}
