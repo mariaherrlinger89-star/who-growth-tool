@@ -130,14 +130,14 @@ export default function WhoChart({ sex, rows, chartRef }: Props) {
           maxRotation: 0,
           minRotation: 0,
           font: {
-            size: isMobile ? 9 : 11,
+            size: isMobile ? 7 : 10,
             family: "Inter, sans-serif",
           },
         },
         title: {
           display: true,
           text: "Alter (0–13 Wochen, danach Monate 4–6)",
-          font: { size: isMobile ? 10 : 12 },
+          font: { size: isMobile ? 8 : 10 },
         },
       },
       y: {
